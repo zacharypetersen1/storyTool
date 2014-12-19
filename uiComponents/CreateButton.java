@@ -1,8 +1,9 @@
 package uiComponents;
 
+import infrastructure.Arch;
+
 import javax.swing.JButton;
 
-import prototype1.Arch;
 import createListeners.*;
 import dataStorage.ColorStore;
 

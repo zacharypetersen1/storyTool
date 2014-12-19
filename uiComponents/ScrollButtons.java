@@ -1,10 +1,11 @@
 package uiComponents;
 
+import infrastructure.Arch;
+
 import javax.swing.JButton;
 
 import listeners.ScrollListener;
 import dataStorage.ColorStore;
-import prototype1.Arch;
 
 public class ScrollButtons {
 

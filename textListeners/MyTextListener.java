@@ -1,12 +1,13 @@
 package textListeners;
 
+import infrastructure.Arch;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
 import dataStorage.ColorStore;
-import prototype1.Arch;
 
 public class MyTextListener implements ActionListener {
 

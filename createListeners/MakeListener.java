@@ -1,10 +1,11 @@
 package createListeners;
 
+import infrastructure.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import prototype1.*;
 import storyBrick.*;
 import graphics.*;
 

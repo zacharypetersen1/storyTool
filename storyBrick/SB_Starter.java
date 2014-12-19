@@ -1,6 +1,8 @@
 package storyBrick;
 
 import graphics.MyPanel;
+import infrastructure.Arch;
+import infrastructure.TargetStory;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -16,8 +18,6 @@ import listeners.MovementInitListener;
 import listeners.MyMouseListener;
 import listeners.OutListener;
 import listeners.StatementListen;
-import prototype1.Arch;
-import prototype1.TargetStory;
 
 public class SB_Starter extends StoryBrick {
 

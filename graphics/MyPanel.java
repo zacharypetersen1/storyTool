@@ -1,13 +1,13 @@
 package graphics;
 
+import infrastructure.Arch;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
-import prototype1.Arch;
 
 
 //This is the panel class

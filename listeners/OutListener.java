@@ -1,10 +1,11 @@
 package listeners;
 
+import infrastructure.Arch;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import dataStorage.ColorStore;
-import prototype1.Arch;
 import storyBrick.StoryBrick;
 
 public class OutListener implements ActionListener {

@@ -1,4 +1,4 @@
-package prototype1;
+package infrastructure;
 
 
 import graphics.MyFrame;

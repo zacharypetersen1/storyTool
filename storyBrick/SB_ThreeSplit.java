@@ -1,6 +1,8 @@
 package storyBrick;
 
 import graphics.MyPanel;
+import infrastructure.Arch;
+import infrastructure.TargetStory;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -19,8 +21,6 @@ import listeners.MyMouseListener;
 import listeners.OptionListener;
 import listeners.OutListener;
 import listeners.StatementListen;
-import prototype1.Arch;
-import prototype1.TargetStory;
 
 public class SB_ThreeSplit extends StoryBrick{
 

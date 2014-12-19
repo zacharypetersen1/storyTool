@@ -1,6 +1,8 @@
 package storyBrick;
 
 import graphics.MyPanel;
+import infrastructure.Arch;
+import infrastructure.TargetStory;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -15,8 +17,6 @@ import listeners.InListener;
 import listeners.MovementInitListener;
 import listeners.MyMouseListener;
 import listeners.OutListener;
-import prototype1.Arch;
-import prototype1.TargetStory;
 
 public class SB_Ender extends StoryBrick{
 	public SB_Ender(TargetStory target, MyPanel panel)

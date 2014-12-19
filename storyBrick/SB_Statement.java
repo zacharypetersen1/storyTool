@@ -1,6 +1,8 @@
 package storyBrick;
 
 import graphics.MyPanel;
+import infrastructure.Arch;
+import infrastructure.TargetStory;
 
 import java.awt.Cursor;
 import java.awt.Graphics2D;
@@ -22,8 +24,6 @@ import listeners.MyMouseListener;
 import listeners.OutListener;
 import listeners.SpeakerChoiceListener;
 import listeners.StatementListen;
-import prototype1.Arch;
-import prototype1.TargetStory;
 
 public class SB_Statement extends StoryBrick {
 	

@@ -1,5 +1,8 @@
 package storyBrick;
 
+import infrastructure.Arch;
+import infrastructure.TargetStory;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Point;
@@ -10,8 +13,6 @@ import javax.swing.JButton;
 import dataStorage.ColorStore;
 import listeners.InListener;
 import listeners.OutListener;
-import prototype1.Arch;
-import prototype1.TargetStory;
 
 public class StoryBrick {
 	

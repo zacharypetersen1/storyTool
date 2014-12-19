@@ -1,9 +1,9 @@
 package listeners;
 
+import infrastructure.Arch;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import prototype1.Arch;
 
 public class ScrollListener implements ActionListener {
 

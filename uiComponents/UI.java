@@ -1,12 +1,14 @@
 package uiComponents;
 
+import infrastructure.Arch;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
 
 
+
 import dataStorage.ColorStore;
-import prototype1.Arch;
 import textListeners.MyTextListener;
 
 public class UI {
