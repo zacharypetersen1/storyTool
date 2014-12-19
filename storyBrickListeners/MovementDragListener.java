@@ -1,20 +1,18 @@
-package listeners;
+package storyBrickListeners;
 
 import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import storyBrick.StoryBrick;
 
-public class MyMouseListener extends MouseMotionAdapter {
+public class MovementDragListener extends MouseMotionAdapter {
 
 	StoryBrick thisSB;
 	static boolean initDelta;
 	static int mouseX, mouseY, prevX, prevY, deltaX, deltaY;
 	
-	public MyMouseListener(StoryBrick setToThis)
+	public MovementDragListener(StoryBrick setToThis)
 	{
 		thisSB = setToThis;
 	}

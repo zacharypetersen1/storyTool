@@ -1,7 +1,6 @@
 package window;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 public class MyFrame extends JFrame {
 

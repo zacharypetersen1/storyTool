@@ -3,7 +3,6 @@ package storyBrick;
 import infrastructure.Controller;
 import infrastructure.Story;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,12 +10,11 @@ import java.io.PrintWriter;
 
 import javax.swing.JButton;
 
+import storyBrickListeners.InListener;
+import storyBrickListeners.MovementClickListener;
+import storyBrickListeners.MovementDragListener;
 import window.MyPanel;
 import dataStorage.ColorStore;
-import listeners.InListener;
-import listeners.MovementInitListener;
-import listeners.MyMouseListener;
-import listeners.OutListener;
 
 public class SB_Ender extends StoryBrick{
 	public SB_Ender(Story target, MyPanel panel)
@@ -27,8 +25,8 @@ public class SB_Ender extends StoryBrick{
 		
 		//set up the main button (used to drag around the storybrick)
 		thisButton = new JButton(Controller.end_main);
-		thisButton.addMouseListener(new MovementInitListener());
-		thisButton.addMouseMotionListener(new MyMouseListener(this));
+		thisButton.addMouseListener(new MovementClickListener());
+		thisButton.addMouseMotionListener(new MovementDragListener(this));
 		
 		//set up the other buttons
 		in = new JButton("in");
@@ -55,7 +53,7 @@ public class SB_Ender extends StoryBrick{
 		inY = mainY;
 		thisButton.setLocation(mainX - width/2, mainY - height/2);
 		in.setLocation(inX - inOutWidth/2, inY - inOutHeight/2);
-		targetStory.arch.panel.repaint();
+		targetStory.controller.panel.repaint();
 	}
 	
 	public void setAppearance()

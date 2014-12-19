@@ -4,7 +4,6 @@ import infrastructure.Controller;
 
 import javax.swing.JButton;
 
-import listeners.ScrollListener;
 import dataStorage.ColorStore;
 
 public class ScrollButtons {

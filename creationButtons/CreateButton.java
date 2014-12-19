@@ -5,8 +5,6 @@ import infrastructure.Controller;
 import javax.swing.JButton;
 
 import uiComponents.UI;
-import uiComponents.UI.Type;
-import creationButtons.*;
 import dataStorage.ColorStore;
 
 public class CreateButton {

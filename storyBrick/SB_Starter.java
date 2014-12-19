@@ -3,7 +3,6 @@ package storyBrick;
 import infrastructure.Controller;
 import infrastructure.Story;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,13 +10,11 @@ import java.io.PrintWriter;
 
 import javax.swing.JButton;
 
+import storyBrickListeners.MovementClickListener;
+import storyBrickListeners.MovementDragListener;
+import storyBrickListeners.OutListener;
 import window.MyPanel;
 import dataStorage.ColorStore;
-import listeners.InListener;
-import listeners.MovementInitListener;
-import listeners.MyMouseListener;
-import listeners.OutListener;
-import listeners.StatementListen;
 
 public class SB_Starter extends StoryBrick {
 
@@ -29,14 +26,14 @@ public class SB_Starter extends StoryBrick {
 		
 		//set up the main button (used to drag around the storybrick)
 		thisButton = new JButton(Controller.start_main);
-		thisButton.addMouseListener(new MovementInitListener());
-		thisButton.addMouseMotionListener(new MyMouseListener(this));
+		thisButton.addMouseListener(new MovementClickListener());
+		thisButton.addMouseMotionListener(new MovementDragListener(this));
 		thisButton.setBackground(ColorStore.startColor);
 		
 		//set up the other buttons
 		out1 = new JButton("out");
 		out1.setBackground(ColorStore.defaultGray);
-		out1Listener = new OutListener(this, 1, targetStory.arch);
+		out1Listener = new OutListener(this, 1, targetStory.controller);
 		out1.addActionListener(out1Listener);
 		
 		//add the buttons
@@ -49,7 +46,7 @@ public class SB_Starter extends StoryBrick {
 		//run the update to set size and position of buttons
 		update();
 		
-		targetStory.arch.starter = this;
+		targetStory.controller.starter = this;
 	}
 	
 	public void findStage()
@@ -69,7 +66,7 @@ public class SB_Starter extends StoryBrick {
 		//and we want X/Y positions to be middle of button)
 		thisButton.setLocation(mainX-width/2,mainY-height/2);
 		out1.setLocation(out1X-inOutWidth/2, out1Y-inOutHeight/2);
-		targetStory.arch.panel.repaint();
+		targetStory.controller.panel.repaint();
 	}
 	
 	public void setAppearance()

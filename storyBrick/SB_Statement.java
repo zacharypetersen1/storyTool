@@ -3,27 +3,24 @@ package storyBrick;
 import infrastructure.Controller;
 import infrastructure.Story;
 
-import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.io.PrintWriter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 
+import storyBrickListeners.InListener;
+import storyBrickListeners.MovementClickListener;
+import storyBrickListeners.MovementDragListener;
+import storyBrickListeners.OutListener;
+import storyBrickListeners.SpeakerChoiceListener;
+import storyBrickListeners.StatementListen;
 import window.MyPanel;
 import dataStorage.ColorStore;
-import listeners.InListener;
-import listeners.MovementInitListener;
-import listeners.MyMouseListener;
-import listeners.OutListener;
-import listeners.SpeakerChoiceListener;
-import listeners.StatementListen;
 
 public class SB_Statement extends StoryBrick {
 	
@@ -50,8 +47,8 @@ public class SB_Statement extends StoryBrick {
 		
 		//set up the main button (used to drag around the storybrick)
 		thisButton = new JButton(Controller.controller.statement_main);
-		thisButton.addMouseListener(new MovementInitListener());
-		thisButton.addMouseMotionListener(new MyMouseListener(this));
+		thisButton.addMouseListener(new MovementClickListener());
+		thisButton.addMouseMotionListener(new MovementDragListener(this));
 		
 		//set up "in" node button and listener
 		in = new JButton("in");
@@ -60,7 +57,7 @@ public class SB_Statement extends StoryBrick {
 		
 		//set up "out" node button and listener
 		out1 = new JButton("out");
-		out1Listener = new OutListener(this, 1, targetStory.arch);
+		out1Listener = new OutListener(this, 1, targetStory.controller);
 		out1.addActionListener(out1Listener);
 		
 		//set up "statement" button and listener
@@ -92,14 +89,6 @@ public class SB_Statement extends StoryBrick {
 	public void setStatement(String setToThis)
 	{
 		statement = setToThis;
-	}
-	
-	public void setStatement()
-	{
-		System.out.println("Enter Statement");
-		Scanner scan = new Scanner(System.in);
-		statement = scan.nextLine();
-		//scan.close();
 	}
 	
 	public void findStage()
@@ -139,7 +128,7 @@ public class SB_Statement extends StoryBrick {
 		stm.setText(statement);
 		
 		//Repaint the flowchart lines
-		targetStory.arch.panel.repaint();
+		targetStory.controller.panel.repaint();
 	}
 	
 	//This method sets the colors and sizes of the various

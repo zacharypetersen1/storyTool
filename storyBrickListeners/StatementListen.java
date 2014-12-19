@@ -1,35 +1,27 @@
-package listeners;
+package storyBrickListeners;
 
 import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
 import dataStorage.ColorStore;
-import storyBrick.SB_ChoiceSplit;
+import storyBrick.SB_Statement;
 import uiComponents.UI;
 
-public class OptionListener implements ActionListener {
-
-	SB_ChoiceSplit thisThreeSplit;
-	int optionNum;
-	JButton thisButton;
+public class StatementListen implements ActionListener {	
 	
+	SB_Statement thisSBStatement;
 	
-	public OptionListener(SB_ChoiceSplit setToThis, int setNum, JButton setButton)
+	public StatementListen(SB_Statement setToThis)
 	{
-		thisThreeSplit = setToThis;
-		optionNum = setNum;
-		thisButton = setButton;
+		thisSBStatement = setToThis;
 	}
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(Controller.controller.textQueClipboard == thisThreeSplit && Controller.controller.textQueStatus == optionNum)
+		if(Controller.controller.textQueClipboard == thisSBStatement)
 		{
-			thisButton.setBackground(ColorStore.defaultGray);
+			thisSBStatement.stm.setBackground(ColorStore.defaultGray);
 			UI.ui.textField.setText("");
 			Controller.controller.textQueClipboard = null;
 			Controller.controller.textQueStatus = -1;
@@ -46,12 +38,12 @@ public class OptionListener implements ActionListener {
 			case(3) : Controller.controller.textQueClipboard.opt3.setBackground(ColorStore.defaultGray); break;
 			}
 		
-			Controller.controller.textQueStatus = optionNum;
-			Controller.controller.textQueClipboard = thisThreeSplit;
-			thisButton.setBackground(ColorStore.selectColor);
-			Controller.controller.ui.textField.setText(thisThreeSplit.getOption(optionNum));
-			thisThreeSplit.update();
+			//make this statement become selected
+			thisSBStatement.stm.setBackground(ColorStore.selectColor);
+			Controller.controller.textQueStatus = 0;
+			Controller.controller.textQueClipboard = thisSBStatement;
+			Controller.controller.ui.textField.setText(thisSBStatement.statement);
+			thisSBStatement.update();
 		}
 	}
-	
 }

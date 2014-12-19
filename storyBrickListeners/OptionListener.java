@@ -1,30 +1,35 @@
-package listeners;
+package storyBrickListeners;
 
 import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JTextField;
+import javax.swing.JButton;
 
 import dataStorage.ColorStore;
-import storyBrick.SB_Statement;
+import storyBrick.SB_ChoiceSplit;
 import uiComponents.UI;
 
-public class StatementListen implements ActionListener {	
+public class OptionListener implements ActionListener {
+
+	SB_ChoiceSplit thisThreeSplit;
+	int optionNum;
+	JButton thisButton;
 	
-	SB_Statement thisSBStatement;
 	
-	public StatementListen(SB_Statement setToThis)
+	public OptionListener(SB_ChoiceSplit setToThis, int setNum, JButton setButton)
 	{
-		thisSBStatement = setToThis;
+		thisThreeSplit = setToThis;
+		optionNum = setNum;
+		thisButton = setButton;
 	}
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(Controller.controller.textQueClipboard == thisSBStatement)
+		if(Controller.controller.textQueClipboard == thisThreeSplit && Controller.controller.textQueStatus == optionNum)
 		{
-			thisSBStatement.stm.setBackground(ColorStore.defaultGray);
+			thisButton.setBackground(ColorStore.defaultGray);
 			UI.ui.textField.setText("");
 			Controller.controller.textQueClipboard = null;
 			Controller.controller.textQueStatus = -1;
@@ -41,12 +46,12 @@ public class StatementListen implements ActionListener {
 			case(3) : Controller.controller.textQueClipboard.opt3.setBackground(ColorStore.defaultGray); break;
 			}
 		
-			//make this statement become selected
-			thisSBStatement.stm.setBackground(ColorStore.selectColor);
-			Controller.controller.textQueStatus = 0;
-			Controller.controller.textQueClipboard = thisSBStatement;
-			Controller.controller.ui.textField.setText(thisSBStatement.statement);
-			thisSBStatement.update();
+			Controller.controller.textQueStatus = optionNum;
+			Controller.controller.textQueClipboard = thisThreeSplit;
+			thisButton.setBackground(ColorStore.selectColor);
+			Controller.controller.ui.textField.setText(thisThreeSplit.getOption(optionNum));
+			thisThreeSplit.update();
 		}
 	}
+	
 }

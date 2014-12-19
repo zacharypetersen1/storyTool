@@ -10,9 +10,8 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 
-import dataStorage.ColorStore;
-import listeners.InListener;
-import listeners.OutListener;
+import storyBrickListeners.InListener;
+import storyBrickListeners.OutListener;
 
 public class StoryBrick {
 	

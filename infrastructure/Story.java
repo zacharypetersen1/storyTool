@@ -7,11 +7,6 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import creationButtons.CreateStatementListener;
-
 public class Story {
 	
 	public File outFile;
@@ -19,7 +14,7 @@ public class Story {
 	String fileName, fileDir;
 	Scanner scan;
 	public int counter = 0;
-	public Controller arch;
+	public Controller controller;
 	
 	public Story()
 	{
@@ -40,12 +35,7 @@ public class Story {
 		writer.println("");
 		writer.close();
 		
-/*    	JFrame frame = new JFrame("test");
-    	frame.setLayout(null);
-    	frame.setSize(2000, 1000);
-    	frame.setVisible(true);
- */   	
-    	arch = new Controller(this);
+    	controller = new Controller(this);
 	}
 	
 	

@@ -1,13 +1,9 @@
 package window;
 
 import infrastructure.Controller;
-
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 
 
 //This is the panel class

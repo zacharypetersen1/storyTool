@@ -3,24 +3,21 @@ package storyBrick;
 import infrastructure.Controller;
 import infrastructure.Story;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 
+import storyBrickListeners.InListener;
+import storyBrickListeners.MovementClickListener;
+import storyBrickListeners.MovementDragListener;
+import storyBrickListeners.OptionListener;
+import storyBrickListeners.OutListener;
 import window.MyPanel;
 import dataStorage.ColorStore;
-import listeners.InListener;
-import listeners.MovementInitListener;
-import listeners.MyMouseListener;
-import listeners.OptionListener;
-import listeners.OutListener;
-import listeners.StatementListen;
 
 public class SB_ChoiceSplit extends StoryBrick{
 
@@ -39,8 +36,8 @@ public class SB_ChoiceSplit extends StoryBrick{
 		
 		//set up the main button (used to drag around the storybrick)
 		thisButton = new JButton(Controller.split_main);
-		thisButton.addMouseListener(new MovementInitListener());
-		thisButton.addMouseMotionListener(new MyMouseListener(this));
+		thisButton.addMouseListener(new MovementClickListener());
+		thisButton.addMouseMotionListener(new MovementDragListener(this));
 		
 		//set up the other buttons
 		in = new JButton("in");
@@ -49,9 +46,9 @@ public class SB_ChoiceSplit extends StoryBrick{
 		out1 = new JButton("out1");
 		out2 = new JButton("out2");
 		out3 = new JButton("out3");
-		out1Listener = new OutListener(this, 1, targetStory.arch);
-		out2Listener = new OutListener(this, 2, targetStory.arch);
-		out3Listener = new OutListener(this, 3, targetStory.arch);
+		out1Listener = new OutListener(this, 1, targetStory.controller);
+		out2Listener = new OutListener(this, 2, targetStory.controller);
+		out3Listener = new OutListener(this, 3, targetStory.controller);
 		out1.addActionListener(out1Listener);
 		out2.addActionListener(out2Listener);
 		out3.addActionListener(out3Listener);
@@ -90,18 +87,6 @@ public class SB_ChoiceSplit extends StoryBrick{
 		option3 = setToThis3;
 	}
 	
-	public void setStatement()
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Option 1");
-		option1 = scan.nextLine();
-		System.out.println("Enter Option 2");
-		option2 = scan.nextLine();
-		System.out.println("Enter Option 3");
-		option3 = scan.nextLine();
-		scan.close();
-	}
-	
 	public void setStatement(String setToThis, int optionNum)
 	{
 		switch(optionNum)
@@ -110,22 +95,6 @@ public class SB_ChoiceSplit extends StoryBrick{
 		case (2) : option2 = setToThis; break;
 		case (3) : option3 = setToThis; break;
 		}
-	}
-	
-	public void setStatement(int optionNum)
-	{
-		Scanner scan = new Scanner(System.in);
-		switch(optionNum)
-		{
-		case (1) :  System.out.println("Enter Option 1");
-					option1 = scan.nextLine(); break;
-		case (2) :  System.out.println("Enter Option 2");
-					option2 = scan.nextLine(); break;
-		case (3) :  System.out.println("Enter Option 3");
-					option3 = scan.nextLine(); break;
-		}
-		//scan.close();
-		
 	}
 	
 	//allows us to quickly access the options
@@ -193,7 +162,7 @@ public class SB_ChoiceSplit extends StoryBrick{
 		out3.setLocation(out3X-inOutWidth/2, out3Y-inOutHeight/2);
 
 		
-		targetStory.arch.panel.repaint();
+		targetStory.controller.panel.repaint();
 	}
 	
 	public void setAppearance()
