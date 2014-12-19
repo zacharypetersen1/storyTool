@@ -1,8 +1,7 @@
 package storyBrick;
 
-import graphics.MyPanel;
-import infrastructure.Arch;
-import infrastructure.TargetStory;
+import infrastructure.Controller;
+import infrastructure.Story;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -12,6 +11,7 @@ import java.io.PrintWriter;
 
 import javax.swing.JButton;
 
+import window.MyPanel;
 import dataStorage.ColorStore;
 import listeners.InListener;
 import listeners.MovementInitListener;
@@ -19,14 +19,14 @@ import listeners.MyMouseListener;
 import listeners.OutListener;
 
 public class SB_Ender extends StoryBrick{
-	public SB_Ender(TargetStory target, MyPanel panel)
+	public SB_Ender(Story target, MyPanel panel)
 	{
 		super();
 		
 		targetStory = target;
 		
 		//set up the main button (used to drag around the storybrick)
-		thisButton = new JButton(Arch.end_main);
+		thisButton = new JButton(Controller.end_main);
 		thisButton.addMouseListener(new MovementInitListener());
 		thisButton.addMouseMotionListener(new MyMouseListener(this));
 		
@@ -49,8 +49,8 @@ public class SB_Ender extends StoryBrick{
 	
 	public void update()
 	{
-		mainX = x + Arch.globalX;
-		mainY = y + Arch.globalY;
+		mainX = x + Controller.globalX;
+		mainY = y + Controller.globalY;
 		inX = mainX - width/2 - inOutWidth/2;
 		inY = mainY;
 		thisButton.setLocation(mainX - width/2, mainY - height/2);

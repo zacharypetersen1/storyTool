@@ -1,7 +1,7 @@
 package storyBrick;
 
-import infrastructure.Arch;
-import infrastructure.TargetStory;
+import infrastructure.Controller;
+import infrastructure.Story;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -17,7 +17,7 @@ import listeners.OutListener;
 public class StoryBrick {
 	
 	//Variables
-	TargetStory targetStory;
+	Story targetStory;
 	StoryBrick pointer1, pointer2, pointer3;
 	int thisStage, targetStage1, targetStage2, targetStage3;
 	int timeLimit = 60;
@@ -38,8 +38,8 @@ public class StoryBrick {
 	//Constructors
 	public StoryBrick()
 	{
-		x = 50 - Arch.globalX;
-		y = 50 - Arch.globalY;
+		x = 50 - Controller.globalX;
+		y = 50 - Controller.globalY;
 	}
 	
 	//Methods

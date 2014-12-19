@@ -1,6 +1,6 @@
-package graphics;
+package window;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,9 +16,9 @@ public class MyPanel extends JLayeredPane {
 	//Draw information, tells where to draw the line
 	int drawY = 0;
 	//Must be able to access the lists containing storybricks
-	Arch thisArch;
+	Controller thisArch;
 	
-	public MyPanel(Arch setToThis)
+	public MyPanel(Controller setToThis)
 	{
 		//Set layout of panel to null (so that we use normal cartesian positioning)
 		this.setLayout(null);
@@ -26,7 +26,7 @@ public class MyPanel extends JLayeredPane {
 	}
 	
 	//Contains drawing code
-	public void drawInHere(Graphics g)
+	public void drawFlowchartLines(Graphics g)
 	{
 		//Create graphics obj that will be used to call drawing code
 		Graphics2D g2d = (Graphics2D) g;
@@ -53,7 +53,7 @@ public class MyPanel extends JLayeredPane {
 	public void paintComponent (Graphics g)
 	{
 		super.paintComponent(g);
-		drawInHere(g);
+		drawFlowchartLines(g);
 	}
 	
 }

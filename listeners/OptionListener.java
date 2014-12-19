@@ -1,6 +1,6 @@
 package listeners;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,17 +8,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import dataStorage.ColorStore;
-import storyBrick.SB_ThreeSplit;
+import storyBrick.SB_ChoiceSplit;
 import uiComponents.UI;
 
 public class OptionListener implements ActionListener {
 
-	SB_ThreeSplit thisThreeSplit;
+	SB_ChoiceSplit thisThreeSplit;
 	int optionNum;
 	JButton thisButton;
 	
 	
-	public OptionListener(SB_ThreeSplit setToThis, int setNum, JButton setButton)
+	public OptionListener(SB_ChoiceSplit setToThis, int setNum, JButton setButton)
 	{
 		thisThreeSplit = setToThis;
 		optionNum = setNum;
@@ -27,29 +27,29 @@ public class OptionListener implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(Arch.arch.textQueClipboard == thisThreeSplit && Arch.arch.textQueStatus == optionNum)
+		if(Controller.controller.textQueClipboard == thisThreeSplit && Controller.controller.textQueStatus == optionNum)
 		{
 			thisButton.setBackground(ColorStore.defaultGray);
 			UI.ui.textField.setText("");
-			Arch.arch.textQueClipboard = null;
-			Arch.arch.textQueStatus = -1;
+			Controller.controller.textQueClipboard = null;
+			Controller.controller.textQueStatus = -1;
 		}
 		else
 		{
 			//check if something else is selected
-			switch(Arch.arch.textQueStatus)
+			switch(Controller.controller.textQueStatus)
 			{
 			//reset the other object so that it is no longer selected
-			case(0) : Arch.arch.textQueClipboard.stm.setBackground(ColorStore.defaultGray); break;
-			case(1) : Arch.arch.textQueClipboard.opt1.setBackground(ColorStore.defaultGray); break;
-			case(2) : Arch.arch.textQueClipboard.opt2.setBackground(ColorStore.defaultGray); break;
-			case(3) : Arch.arch.textQueClipboard.opt3.setBackground(ColorStore.defaultGray); break;
+			case(0) : Controller.controller.textQueClipboard.stm.setBackground(ColorStore.defaultGray); break;
+			case(1) : Controller.controller.textQueClipboard.opt1.setBackground(ColorStore.defaultGray); break;
+			case(2) : Controller.controller.textQueClipboard.opt2.setBackground(ColorStore.defaultGray); break;
+			case(3) : Controller.controller.textQueClipboard.opt3.setBackground(ColorStore.defaultGray); break;
 			}
 		
-			Arch.arch.textQueStatus = optionNum;
-			Arch.arch.textQueClipboard = thisThreeSplit;
+			Controller.controller.textQueStatus = optionNum;
+			Controller.controller.textQueClipboard = thisThreeSplit;
 			thisButton.setBackground(ColorStore.selectColor);
-			Arch.arch.ui.textField.setText(thisThreeSplit.getOption(optionNum));
+			Controller.controller.ui.textField.setText(thisThreeSplit.getOption(optionNum));
 			thisThreeSplit.update();
 		}
 	}

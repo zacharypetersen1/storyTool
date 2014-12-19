@@ -1,6 +1,6 @@
-package createListeners;
+package creationButtons;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,9 +11,9 @@ import java.awt.Color;
 
 public class CreateStatementListener implements ActionListener {	
 	
-	Arch arch;
+	Controller arch;
 	
-	public CreateStatementListener(Arch setArch)
+	public CreateStatementListener(Controller setArch)
 	{
 		arch = setArch;
 	}

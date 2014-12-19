@@ -1,6 +1,6 @@
 package textListeners;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,25 +20,25 @@ public class MyTextListener implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(Arch.arch.textQueStatus == -1)
+		if(Controller.controller.textQueStatus == -1)
 			textField.setText("");
 		
 		else
 		{
-			switch(Arch.arch.textQueStatus)
+			switch(Controller.controller.textQueStatus)
 			{
-			case(0) :	Arch.arch.textQueClipboard.stm.setBackground(ColorStore.defaultGray);
-						Arch.arch.textQueClipboard.setStatement(textField.getText()); break;
-			case(1) :	Arch.arch.textQueClipboard.opt1.setBackground(ColorStore.defaultGray);
-						Arch.arch.textQueClipboard.setStatement(textField.getText(), 1); break;
-			case(2) :	Arch.arch.textQueClipboard.opt2.setBackground(ColorStore.defaultGray);
-						Arch.arch.textQueClipboard.setStatement(textField.getText(), 2); break;
-			case(3) :	Arch.arch.textQueClipboard.opt3.setBackground(ColorStore.defaultGray);
-						Arch.arch.textQueClipboard.setStatement(textField.getText(), 3); break;
+			case(0) :	Controller.controller.textQueClipboard.stm.setBackground(ColorStore.defaultGray);
+						Controller.controller.textQueClipboard.setStatement(textField.getText()); break;
+			case(1) :	Controller.controller.textQueClipboard.opt1.setBackground(ColorStore.defaultGray);
+						Controller.controller.textQueClipboard.setStatement(textField.getText(), 1); break;
+			case(2) :	Controller.controller.textQueClipboard.opt2.setBackground(ColorStore.defaultGray);
+						Controller.controller.textQueClipboard.setStatement(textField.getText(), 2); break;
+			case(3) :	Controller.controller.textQueClipboard.opt3.setBackground(ColorStore.defaultGray);
+						Controller.controller.textQueClipboard.setStatement(textField.getText(), 3); break;
 			}
-			Arch.arch.textQueClipboard.update();
-			Arch.arch.textQueClipboard = null;
-			Arch.arch.textQueStatus = -1;
+			Controller.controller.textQueClipboard.update();
+			Controller.controller.textQueClipboard = null;
+			Controller.controller.textQueStatus = -1;
 			textField.setText("");
 		}
 	}

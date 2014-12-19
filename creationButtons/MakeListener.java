@@ -1,4 +1,4 @@
-package createListeners;
+package creationButtons;
 
 import infrastructure.*;
 
@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import storyBrick.*;
-import graphics.*;
+import window.*;
 
 public class MakeListener implements ActionListener {
 
-	Arch arch;
+	Controller arch;
 	
-	public MakeListener(Arch setArch)
+	public MakeListener(Controller setArch)
 	{
 		arch = setArch;
 	}

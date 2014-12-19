@@ -1,6 +1,6 @@
 package listeners;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,13 +26,13 @@ public class ScrollListener implements ActionListener {
 		//first offset the global var
 		switch(dir)
 		{
-		case up : Arch.globalY += delta; break;
-		case down : Arch.globalY -= delta; break;
-		case left : Arch.globalX += delta; break;
-		case right : Arch.globalX -= delta; break;
+		case up : Controller.globalY += delta; break;
+		case down : Controller.globalY -= delta; break;
+		case left : Controller.globalX += delta; break;
+		case right : Controller.globalX -= delta; break;
 		}
 		
 		//then update the ui positions
-		Arch.arch.updateAll();
+		Controller.controller.updateAll();
 	}
 }

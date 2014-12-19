@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException
 	{
-		TargetStory story = new TargetStory();
+		Story story = new Story();
 		story.init();
 
 	} 

@@ -1,15 +1,15 @@
-package createListeners;
+package creationButtons;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateStarterListener implements ActionListener {
 
-	Arch arch;
+	Controller arch;
 	
-	public CreateStarterListener(Arch setArch)
+	public CreateStarterListener(Controller setArch)
 	{
 		arch = setArch;
 	}

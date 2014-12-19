@@ -1,8 +1,7 @@
 package storyBrick;
 
-import graphics.MyPanel;
-import infrastructure.Arch;
-import infrastructure.TargetStory;
+import infrastructure.Controller;
+import infrastructure.Story;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -12,6 +11,7 @@ import java.io.PrintWriter;
 
 import javax.swing.JButton;
 
+import window.MyPanel;
 import dataStorage.ColorStore;
 import listeners.InListener;
 import listeners.MovementInitListener;
@@ -21,14 +21,14 @@ import listeners.StatementListen;
 
 public class SB_Starter extends StoryBrick {
 
-	public SB_Starter(TargetStory target, MyPanel panel)
+	public SB_Starter(Story target, MyPanel panel)
 	{
 		super();
 		
 		targetStory = target;
 		
 		//set up the main button (used to drag around the storybrick)
-		thisButton = new JButton(Arch.start_main);
+		thisButton = new JButton(Controller.start_main);
 		thisButton.addMouseListener(new MovementInitListener());
 		thisButton.addMouseMotionListener(new MyMouseListener(this));
 		thisButton.setBackground(ColorStore.startColor);
@@ -60,8 +60,8 @@ public class SB_Starter extends StoryBrick {
 	public void update()
 	{
 		//Update position variables in relation to x and y (remember, "x" and "y" have already been updated)
-		mainX = x+Arch.globalX;
-		mainY = y+Arch.globalY;
+		mainX = x+Controller.globalX;
+		mainY = y+Controller.globalY;
 		out1X = mainX + width/2 + inOutWidth/2;
 		out1Y = mainY;	
 		

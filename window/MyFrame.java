@@ -1,4 +1,4 @@
-package graphics;
+package window;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;

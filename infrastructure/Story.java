@@ -10,18 +10,18 @@ import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import createListeners.CreateStatementListener;
+import creationButtons.CreateStatementListener;
 
-public class TargetStory {
+public class Story {
 	
 	public File outFile;
 	RandomAccessFile accessFile;
 	String fileName, fileDir;
 	Scanner scan;
 	public int counter = 0;
-	public Arch arch;
+	public Controller arch;
 	
-	public TargetStory()
+	public Story()
 	{
 		
 	}
@@ -45,7 +45,7 @@ public class TargetStory {
     	frame.setSize(2000, 1000);
     	frame.setVisible(true);
  */   	
-    	arch = new Arch(this);
+    	arch = new Controller(this);
 	}
 	
 	

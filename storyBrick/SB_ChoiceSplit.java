@@ -1,8 +1,7 @@
 package storyBrick;
 
-import graphics.MyPanel;
-import infrastructure.Arch;
-import infrastructure.TargetStory;
+import infrastructure.Controller;
+import infrastructure.Story;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -14,6 +13,7 @@ import java.util.Scanner;
 
 import javax.swing.JButton;
 
+import window.MyPanel;
 import dataStorage.ColorStore;
 import listeners.InListener;
 import listeners.MovementInitListener;
@@ -22,7 +22,7 @@ import listeners.OptionListener;
 import listeners.OutListener;
 import listeners.StatementListen;
 
-public class SB_ThreeSplit extends StoryBrick{
+public class SB_ChoiceSplit extends StoryBrick{
 
 	//Variables
 	public String option1 = "option1", option2 = "option2", option3 = "option3";
@@ -31,14 +31,14 @@ public class SB_ThreeSplit extends StoryBrick{
 	int opt1X, opt1Y, opt2X, opt2Y, opt3X, opt3Y;
 	
 	//Constructor
-	public SB_ThreeSplit(TargetStory target, MyPanel panel)
+	public SB_ChoiceSplit(Story target, MyPanel panel)
 	{
 		super();
 		
 		targetStory = target;
 		
 		//set up the main button (used to drag around the storybrick)
-		thisButton = new JButton(Arch.split_main);
+		thisButton = new JButton(Controller.split_main);
 		thisButton.addMouseListener(new MovementInitListener());
 		thisButton.addMouseMotionListener(new MyMouseListener(this));
 		
@@ -160,8 +160,8 @@ public class SB_ThreeSplit extends StoryBrick{
 	
 	public void update()
 	{
-		mainX = x+Arch.globalX;
-		mainY = y+Arch.globalY;
+		mainX = x+Controller.globalX;
+		mainY = y+Controller.globalY;
 		inX = mainX - width/2 - inOutWidth/2;
 		inY = mainY;
 		//Find position for "out" buttons

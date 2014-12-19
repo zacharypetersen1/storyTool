@@ -1,6 +1,6 @@
 package uiComponents;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import javax.swing.JButton;
 
@@ -47,10 +47,10 @@ public class ScrollButtons {
 		left.setBackground(ColorStore.defaultGray);
 		right.setBackground(ColorStore.defaultGray);
 		//add buttons to panel
-		Arch.arch.panel.add(up);
-		Arch.arch.panel.add(down);
-		Arch.arch.panel.add(left);
-		Arch.arch.panel.add(right);
+		Controller.controller.panel.add(up);
+		Controller.controller.panel.add(down);
+		Controller.controller.panel.add(left);
+		Controller.controller.panel.add(right);
 		//add listeners to buttons
 		up.addActionListener(new ScrollListener(ScrollListener.direction.up, scrollSpeed));
 		down.addActionListener(new ScrollListener(ScrollListener.direction.down, scrollSpeed));

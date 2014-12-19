@@ -1,6 +1,6 @@
 package uiComponents;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -8,6 +8,8 @@ import javax.swing.JTextField;
 
 
 
+
+import creationButtons.CreateButton;
 import dataStorage.ColorStore;
 import textListeners.MyTextListener;
 
@@ -44,7 +46,7 @@ public class UI {
     	textField.setSize(400, 24);
     	textField.setLocation(100,635);
     	textField.setBackground(ColorStore.defaultGray);
-    	Arch.arch.panel.add(textField);
+    	Controller.controller.panel.add(textField);
     	//also add specific listener for the text field
     	textField.addActionListener(new MyTextListener(textField));
     	

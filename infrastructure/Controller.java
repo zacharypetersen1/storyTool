@@ -1,34 +1,32 @@
 package infrastructure;
 
 
-import graphics.MyFrame;
-import graphics.MyPanel;
-import importedClasses.AlphaImageIcon;
-
 import java.awt.Color;
 import java.util.*;
 
 import javax.swing.*;
 
-import createListeners.CreateEnderListener;
-import createListeners.CreateStarterListener;
-import createListeners.CreateStatementListener;
-import createListeners.CreateThreeSplitListener;
-import createListeners.MakeListener;
+import creationButtons.CreateEnderListener;
+import creationButtons.CreateStarterListener;
+import creationButtons.CreateStatementListener;
+import creationButtons.CreateChoiceSplitListener;
+import creationButtons.MakeListener;
 import storyBrick.SB_Ender;
 import storyBrick.SB_Starter;
 import storyBrick.SB_Statement;
-import storyBrick.SB_ThreeSplit;
+import storyBrick.SB_ChoiceSplit;
 import storyBrick.StoryBrick;
 import textListeners.MyTextListener;
 import uiComponents.UI;
+import window.MyFrame;
+import window.MyPanel;
 
-public class Arch {
+public class Controller {
 	
-	public static Arch arch;	//Making a global var to store our arch allows us to access arch anywhere
+	public static Controller controller;	//Making a global var to store our arch allows us to access arch anywhere
 	public static int globalX, globalY;	//records global offset
 	
-	TargetStory story;	//allows us to reference our story class
+	Story story;	//allows us to reference our story class
 	MyFrame frame;		//will be created when arch is initialized
 	public MyPanel panel;	//will be created when arch is initialized, also is referenced by other classes
 	public UI ui;
@@ -36,7 +34,7 @@ public class Arch {
 	//All of the following lists store the SB objects and their corresponding buttons that exist in the editor		!!!NOTE:if have time, rewrite this code so that the "main" buttons are stored within each SB rather than here in Arch
 	int statementCount=0, threeSplitCount = 0, starterCount = 0, enderCount = 0;	//these ints keep track amount of each type of SB
 	public List<SB_Statement> statementList = new ArrayList<SB_Statement>();
-	public List<SB_ThreeSplit> threeSplitList = new ArrayList<SB_ThreeSplit>();
+	public List<SB_ChoiceSplit> threeSplitList = new ArrayList<SB_ChoiceSplit>();
 	public List<SB_Starter> starterList = new ArrayList<SB_Starter>();
 	public List<SB_Ender> enderList = new ArrayList<SB_Ender>();
 	
@@ -56,10 +54,10 @@ public class Arch {
 	public static ImageIcon statement_main, split_main, start_main, end_main;
 	JLabel testLabel;
 	
-	public Arch(TargetStory setStory)
+	public Controller(Story setStory)
 	{
 		//Set up Arch
-		Arch.arch = this;
+		Controller.controller = this;
 		story = setStory;
     	
 		//Set up frame and panel
@@ -69,10 +67,10 @@ public class Arch {
     	frame.setSize(2000, 1000);
     	
     	//Access images stored in "images" file:
-    	Arch.statement_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\statement_main.png");
-    	Arch.split_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\split_main.png");
-    	Arch.start_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\start_main.png");
-    	Arch.end_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\end_main.png");
+    	Controller.statement_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\statement_main.png");
+    	Controller.split_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\split_main.png");
+    	Controller.start_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\start_main.png");
+    	Controller.end_main = new ImageIcon("C:\\Users\\Zachary\\Documents\\my_eclipse_workspace\\storyTool_Ptyp1\\src\\images\\end_main.png");
     	
     	//Initialize UI
     	ui = new UI();
@@ -91,7 +89,7 @@ public void addStatement()
 
 public void addThreeSplit()
 {	
-	threeSplitList.add(new SB_ThreeSplit(story, panel));
+	threeSplitList.add(new SB_ChoiceSplit(story, panel));
 	threeSplitCount++;
 }
 

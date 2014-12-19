@@ -1,6 +1,6 @@
 package listeners;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,12 +22,12 @@ public class InListener implements ActionListener {
 	//actionPerformed is called when user clicks on this "in" button
 	public void actionPerformed(ActionEvent e)
 	{
-		if(Arch.arch.inOutClipboard != null)
+		if(Controller.controller.inOutClipboard != null)
 		{
-			Arch.arch.inOutClipboard.in.setBackground(ColorStore.defaultGray);
+			Controller.controller.inOutClipboard.in.setBackground(ColorStore.defaultGray);
 		}
 		//Store the associated storybrick in the clipboard
-		Arch.arch.inOutClipboard = thisStoryBrick;
+		Controller.controller.inOutClipboard = thisStoryBrick;
 		thisStoryBrick.in.setBackground(ColorStore.selectColor);
 	}
 

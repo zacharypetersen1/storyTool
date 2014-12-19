@@ -1,8 +1,7 @@
 package storyBrick;
 
-import graphics.MyPanel;
-import infrastructure.Arch;
-import infrastructure.TargetStory;
+import infrastructure.Controller;
+import infrastructure.Story;
 
 import java.awt.Cursor;
 import java.awt.Graphics2D;
@@ -17,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+import window.MyPanel;
 import dataStorage.ColorStore;
 import listeners.InListener;
 import listeners.MovementInitListener;
@@ -42,14 +42,14 @@ public class SB_Statement extends StoryBrick {
 	String[] speakerOptionList = {"Player", "AI"};
 	
 	//Constructor
-	public SB_Statement(TargetStory target, MyPanel panel)
+	public SB_Statement(Story target, MyPanel panel)
 	{
 		super();
 		
 		targetStory = target;
 		
 		//set up the main button (used to drag around the storybrick)
-		thisButton = new JButton(Arch.arch.statement_main);
+		thisButton = new JButton(Controller.controller.statement_main);
 		thisButton.addMouseListener(new MovementInitListener());
 		thisButton.addMouseMotionListener(new MyMouseListener(this));
 		
@@ -117,8 +117,8 @@ public class SB_Statement extends StoryBrick {
 	{
 		//Update secondary position variables (remember, "x" and "y"
 		// have already been updated)
-		mainX = x+Arch.globalX;
-		mainY = y+Arch.globalY;
+		mainX = x+Controller.globalX;
+		mainY = y+Controller.globalY;
 		inX = mainX - width/2 - inOutWidth/2;
 		inY = mainY;
 		out1X = mainX + width/2 + inOutWidth/2;

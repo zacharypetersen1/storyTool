@@ -1,6 +1,6 @@
 package listeners;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,14 +11,14 @@ import storyBrick.StoryBrick;
 public class OutListener implements ActionListener {
 	
 	//we need to be able to access the info stored in the Arch
-	Arch arch;
+	Controller arch;
 	//We also need to know which storybrick this listener is referring to
 	StoryBrick thisStoryBrick;
 	//and lastly we must know which output (usu. 1 unless the storybrick has multiple out's)
 	int outNum;
 
 	//Constructor
-	public OutListener(StoryBrick setStory, int setNum, Arch setArch)
+	public OutListener(StoryBrick setStory, int setNum, Controller setArch)
 	{
 		//Set all of the instance variables
 		thisStoryBrick = setStory;
@@ -39,7 +39,7 @@ public class OutListener implements ActionListener {
 		{
 			//or else set the pointer to what is stored in clipboard
 			thisStoryBrick.setPointer(outNum, arch.inOutClipboard);
-			Arch.arch.inOutClipboard.in.setBackground(ColorStore.defaultGray);
+			Controller.controller.inOutClipboard.in.setBackground(ColorStore.defaultGray);
 			//clear clipboard
 			arch.inOutClipboard = null;
 			//and redraw the flow lines

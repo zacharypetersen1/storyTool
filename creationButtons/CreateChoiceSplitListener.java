@@ -1,6 +1,6 @@
-package createListeners;
+package creationButtons;
 
-import infrastructure.Arch;
+import infrastructure.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
-public class CreateThreeSplitListener implements ActionListener {	
+public class CreateChoiceSplitListener implements ActionListener {	
 	
-	Arch arch;
+	Controller arch;
 	
-	public CreateThreeSplitListener(Arch setArch)
+	public CreateChoiceSplitListener(Controller setArch)
 	{
 		arch = setArch;
 	}
