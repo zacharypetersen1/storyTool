@@ -2,26 +2,25 @@ package creationButtons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+//import java.io.IOException;
 
 import infrastructure.*;
 
 
-public class MakeListener implements ActionListener {
+public class SaveListener implements ActionListener {
 
 	Controller arch;
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		try
+		//try
 		{	
-			Controller.controller.starter.findStage();
-			Controller.controller.starter.make();
+			System.out.println("Save");
 		}
-		catch(IOException ex)
+		/*catch(IOException ex)
 		{
 			System.out.println("failed");
-		}
+		}*/
 	}
 	
 }

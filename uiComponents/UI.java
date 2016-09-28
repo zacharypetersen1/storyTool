@@ -16,13 +16,13 @@ import textListeners.MyTextListener;
 public class UI {
 	
 	public static UI ui;
-	CreateButton crStarter, crStatement, crThreeSplit, crEnder, crMake;
+	CreateButton crStarter, crStatement, crThreeSplit, crEnder, crMake, crSave;
 	public JTextField textField;	//text field at bottom of editor
-	JButton make;
+	JButton make, save;
 	ScrollButtons fast, slow;
 	
 	public enum Type{
-		Starter, Statement, ThreeSplit, Ender, Make
+		Starter, Statement, ThreeSplit, Ender, Make, Save
 	}
 	
 	public UI()
@@ -40,6 +40,7 @@ public class UI {
 		crThreeSplit = new CreateButton(Type.ThreeSplit);
 		crEnder = new CreateButton(Type.Ender);
     	crMake = new CreateButton(Type.Make);
+    	crSave = new CreateButton(Type.Save);
     	
     	//Create and add text field
     	textField = new JTextField(20);

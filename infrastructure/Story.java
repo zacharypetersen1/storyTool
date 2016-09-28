@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.*;
 
+
 public class Story {
 	
 	public File outFile;
@@ -16,11 +17,6 @@ public class Story {
 	public int counter = 0;
 	public Controller controller;
 	
-	public Story()
-	{
-		
-	}
-	
 	public void init() throws IOException
 	{
 		scan = new Scanner(System.in);
@@ -28,8 +24,7 @@ public class Story {
 		fileName = scan.next();
 		fileDir = "C:/Users/Zachary/Documents/my_eclipse_workspace/storyTool_Ptyp1/output/"+ fileName +".txt";
 		outFile = new File(fileDir);
-		
-		
+			
 		PrintWriter writer = new PrintWriter(new FileWriter(outFile, true));
 		writer.println("//Name: " + fileName);
 		writer.println("");
@@ -37,6 +32,5 @@ public class Story {
 		
     	controller = new Controller(this);
 	}
-	
 	
 }

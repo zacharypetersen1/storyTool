@@ -1,16 +1,12 @@
 package infrastructure;
 
-
 import java.util.*;
 import javax.swing.*;
-import storyBrick.SB_Ender;
-import storyBrick.SB_Starter;
-import storyBrick.SB_Statement;
-import storyBrick.SB_ChoiceSplit;
-import storyBrick.StoryBrick;
+
+import storyBrick.*;
 import uiComponents.UI;
-import window.MyFrame;
-import window.MyPanel;
+import window.*;
+
 
 public class Controller {
 	
@@ -34,13 +30,13 @@ public class Controller {
 	public SB_Starter starter;
 
 	//Variables for communication between text field and SB's
-	public StoryBrick textQueClipboard;	//stores the SB that is selected
-	public int textQueStatus = -1;	//records status of text que
+	public StoryBrick textQueueClipboard;	//stores the SB that is selected
+	public int textQueueStatus = -1;	//records status of text queue
 		//-1 means nothing selected
 		// 0 means SB_statement's statement is selected
-		// 1 means SB_threeSplit's option 1 is selected
-		// 2 means SB_threeSplit's option 2 is selected
-		// 3 means SB_threeSplit's option 3 is selected
+		// 1 means SB_choiceSplit's option 1 is selected
+		// 2 means SB_choiceSplit's option 2 is selected
+		// 3 means SB_choiceSplit's option 3 is selected
 	
 	public static ImageIcon statement_main, split_main, start_main, end_main;
 	JLabel testLabel;
